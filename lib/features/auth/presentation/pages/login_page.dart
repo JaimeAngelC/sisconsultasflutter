@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/auth_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
 
-class LoginPage extends ConsumerWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+
+    final auth = Provider.of<AuthProvider>(context, listen: false);
 
     return Scaffold(
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            ref.read(authProvider.notifier).login("Jaime");
+            auth.login("Jaime", "1234");
           },
           child: const Text("Login"),
         ),
