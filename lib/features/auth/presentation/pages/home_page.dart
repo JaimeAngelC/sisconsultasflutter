@@ -12,9 +12,21 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: Text(
-          "Bienvenido ${auth.username}",
-          style: const TextStyle(fontSize: 22),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [            
+              Text(
+                "Bienvenido ${auth.username}",
+                style: const TextStyle(fontSize: 22),
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  await auth.logout();
+                 },
+                child: const Text("Cerrar sesión"),
+              ),
+            
+          ],
         ),
       ),
     );

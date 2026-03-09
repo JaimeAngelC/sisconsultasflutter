@@ -1,10 +1,10 @@
-import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:sisconsultas/features/auth/data/services/auth_api_service.dart';
 
 class AuthProvider with ChangeNotifier {
   final _storage = FlutterSecureStorage();
+  final AuthApiService _api = AuthApiService();
 
   String? _token;
   String? _username;
@@ -23,36 +23,30 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> login(String username, String password) async {
-    final response = await http.post(
-      Uri.parse('https://api.example.com/login'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        'username': username,
-        'password': password,
-      }),
-    );
+    final response = await _api.login(username, password);
 
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      final token = data['token'];
-      await _storeTokenAndUsername(token, username);
-      _token = token;
-      _username = username;
+    if (response != null && response.success) {
+
+      final user = response.user!;
+
+      _token = user.token;
+      _username = user.nombres;
+
+      await _storeTokenAndUsername(user.token, user.nombres);
+
       notifyListeners();
+
       return true;
-    } else {
-      return false;
     }
+
+    return false;
   }
 
-  Future<bool> logout() async {
+  Future<void> logout() async {
     await _clearTokenAndUsername();
     _token = null;
     _username = null;
-    notifyListeners();
-    return true;
+    notifyListeners();    
   }
 
   Future<bool> isLoggedIn() async {

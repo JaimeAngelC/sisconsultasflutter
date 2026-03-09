@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sisconsultas/features/auth/presentation/pages/home_page.dart';
 import 'package:sisconsultas/features/auth/presentation/pages/login_page.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
+import 'package:sisconsultas/features/auth/presentation/widgets/auth_wrapper.dart';
 
 void main() {
   runApp(
@@ -19,15 +20,11 @@ class MyApp extends StatelessWidget {
   @override
 /// Builds a [MaterialApp] that displays either the [HomePage] or [LoginPage]
 /// based on whether the user is logged in or not.
-  Widget build(BuildContext context) {
-
-    final auth = Provider.of<AuthProvider>(context);
+  Widget build(BuildContext context) {    
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: auth.token != null
-          ? const HomePage()
-          : const LoginPage(),
+      home: const AuthWrapper(),
     );
   }
 }
