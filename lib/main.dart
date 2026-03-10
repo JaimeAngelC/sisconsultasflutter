@@ -4,7 +4,6 @@ import 'package:sisconsultas/features/auth/presentation/pages/home_page.dart';
 import 'package:sisconsultas/features/auth/presentation/pages/login_page.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
 import 'package:sisconsultas/features/auth/presentation/widgets/auth_wrapper.dart';
-
 void main() {
   runApp(
     ChangeNotifierProvider(
@@ -13,7 +12,6 @@ void main() {
     ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
