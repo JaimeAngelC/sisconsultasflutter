@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
 import 'package:sisconsultas/features/auth/presentation/widgets/login_button.dart';
 import 'package:sisconsultas/features/auth/presentation/widgets/login_input_password.dart';
 import 'package:sisconsultas/features/auth/presentation/widgets/login_input_user.dart';
@@ -31,20 +29,4 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget botonAceptar(BuildContext context) {
-  final auth = Provider.of<AuthProvider>(context, listen: false);
-  return ElevatedButton(
-    onPressed: () async {
-      final success = await auth.login("5551029", "J5551029");
-      if (!context.mounted) return;
-      if (!success) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(const SnackBar(content: Text("Login incorrecto")));
-      }
-    },
-    child: const Text("Aceptar"),
-  );
 }
