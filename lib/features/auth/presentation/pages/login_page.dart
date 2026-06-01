@@ -8,22 +8,25 @@ class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) {    
-
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TitleLogin(),
-              TextoUsuario(),
-              SizedBox(height: 20),
-              TextoContrasena(),
-              SizedBox(height: 20),
-              BotonAceptar(),
-            ],
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 400),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TitleLogin(),
+                SizedBox(height: 20),
+                TextoUsuario(),
+                SizedBox(height: 20),
+                TextoContrasena(),
+                SizedBox(height: 20),
+                BotonAceptar(),
+              ],
+            ),
           ),
         ),
       ),
