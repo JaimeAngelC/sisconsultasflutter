@@ -4,49 +4,19 @@ import 'package:sisconsultas/features/auth/presentation/pages/home_page.dart';
 import 'package:sisconsultas/features/auth/presentation/pages/login_page.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
 
-class AuthWrapper extends StatefulWidget {
+class AuthWrapper extends StatelessWidget {
   const AuthWrapper({super.key});
 
   @override
-  State<AuthWrapper> createState() => _AuthWrapperState();
-}
-
-class _AuthWrapperState extends State<AuthWrapper> {
-
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    checkLogin();
-  }
-
-  Future<void> checkLogin() async {
-
-    final auth = context.read<AuthProvider>();
-
-    await auth.isLoggedIn();
-
-    setState(() {
-      isLoading = false;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-
-    final auth = context.watch<AuthProvider>(); // 👈 escucha cambios
-
-    if (isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+    final auth = context.watch<AuthProvider>();
+    switch (auth.status) {
+      case AuthStatus.loading:
+        return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      case AuthStatus.notAutenticated:
+        return const LoginPage();
+      case AuthStatus.autenticated:
+        return const HomePage();
     }
-
-    if (auth.token != null) {
-      return const HomePage();
-    }
-
-    return const LoginPage();
   }
 }
