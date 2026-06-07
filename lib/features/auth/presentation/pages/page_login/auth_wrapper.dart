@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sisconsultas/features/auth/presentation/pages/home_page.dart';
-import 'package:sisconsultas/features/auth/presentation/pages/login_page.dart';
+import 'package:sisconsultas/features/auth/presentation/pages/page_home/home_page.dart';
+import 'package:sisconsultas/features/auth/presentation/pages/page_login/login_page.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
 
 class AuthWrapper extends StatelessWidget {

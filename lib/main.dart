@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
-import 'package:sisconsultas/features/auth/presentation/widgets/auth_wrapper.dart';
+import 'package:sisconsultas/features/auth/presentation/pages/page_login/auth_wrapper.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
