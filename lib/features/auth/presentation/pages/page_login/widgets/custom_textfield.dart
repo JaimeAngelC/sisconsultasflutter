@@ -15,19 +15,23 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final outlineInputBorder = UnderlineInputBorder(
+
+    final border = OutlineInputBorder(
       borderSide: BorderSide(color: Colors.tealAccent),
       borderRadius: BorderRadius.circular(10),
     );
+
     return TextFormField(
       controller: controller,      
       validator: validator,
-      decoration: InputDecoration(        
-        fillColor: Colors.white,
-        enabledBorder: outlineInputBorder,
-        focusedBorder: outlineInputBorder,
+      decoration: InputDecoration(  
+        filled: true,
+        fillColor: Colors.white,      
+        hintText: hintText,
+        enabledBorder: border,
+        focusedBorder: border,
         contentPadding: EdgeInsets.symmetric(vertical: 18),
-        prefix: Icon(Icons.person, color: Colors.tealAccent),
+        prefixIcon: Icon(Icons.person, color: Colors.tealAccent),
       ),
     );
   }

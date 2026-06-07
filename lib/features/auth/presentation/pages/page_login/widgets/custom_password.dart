@@ -20,10 +20,12 @@ class _PasswordTexfFieldState extends State<PasswordTexfField> {
 
   @override  
   Widget build(BuildContext context) {
+
     final border = OutlineInputBorder(
       borderSide: BorderSide(color: Colors.tealAccent),
       borderRadius: BorderRadius.circular(10),
     );
+    
     return TextFormField(
       obscureText: obscureText,
       validator: widget.validator,
@@ -35,7 +37,7 @@ class _PasswordTexfFieldState extends State<PasswordTexfField> {
         enabledBorder: border,
         focusedBorder: border,
         contentPadding: EdgeInsets.symmetric(vertical: 18),
-        prefix: Icon(Icons.lock, color: Colors.tealAccent),
+        prefixIcon: Icon(Icons.lock, color: Colors.tealAccent),
         suffixIcon: IconButton(
           icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
           color: Colors.tealAccent,
