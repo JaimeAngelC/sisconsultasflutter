@@ -21,6 +21,11 @@ class CustomTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
     );
 
+    final errorBorder = OutlineInputBorder(
+      borderSide: const BorderSide(color: Colors.red),
+      borderRadius: BorderRadius.circular(10),
+    );
+
     return TextFormField(
       controller: controller,      
       validator: validator,
@@ -30,6 +35,10 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         enabledBorder: border,
         focusedBorder: border,
+        
+        errorBorder: errorBorder,
+        focusedErrorBorder: errorBorder,
+
         contentPadding: EdgeInsets.symmetric(vertical: 18),
         prefixIcon: Icon(Icons.person, color: Colors.tealAccent),
       ),

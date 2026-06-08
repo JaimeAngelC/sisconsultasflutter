@@ -25,6 +25,11 @@ class _PasswordTexfFieldState extends State<PasswordTexfField> {
       borderSide: BorderSide(color: Colors.tealAccent),
       borderRadius: BorderRadius.circular(10),
     );
+
+    final errorBorder = OutlineInputBorder(
+      borderSide: const BorderSide(color: Colors.red),
+      borderRadius: BorderRadius.circular(10),
+    );
     
     return TextFormField(
       obscureText: obscureText,
@@ -36,6 +41,10 @@ class _PasswordTexfFieldState extends State<PasswordTexfField> {
         fillColor: Colors.white,
         enabledBorder: border,
         focusedBorder: border,
+
+        errorBorder: errorBorder,
+        focusedErrorBorder: errorBorder,
+        
         contentPadding: EdgeInsets.symmetric(vertical: 18),
         prefixIcon: Icon(Icons.lock, color: Colors.tealAccent),
         suffixIcon: IconButton(
