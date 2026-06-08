@@ -60,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children:  [
                 TitleLogin(),
+                SizedBox(height: 50),
                 CustomTextField(
                   controller: usuarioController,
                   hintText: "Usuario",
