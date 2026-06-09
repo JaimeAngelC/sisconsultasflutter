@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sisconsultas/features/auth/presentation/pages/page_login/widgets/custom_button.dart';
-import 'package:sisconsultas/features/auth/presentation/pages/page_login/widgets/custom_password.dart';
-import 'package:sisconsultas/features/auth/presentation/pages/page_login/widgets/custom_textfield.dart';
-import 'package:sisconsultas/features/auth/presentation/pages/page_login/widgets/login_title.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
+import 'package:sisconsultas/features/auth/presentation/widgets/custom_button.dart';
+import 'package:sisconsultas/features/auth/presentation/widgets/custom_password.dart';
+import 'package:sisconsultas/features/auth/presentation/widgets/custom_textfield.dart';
+import 'package:sisconsultas/features/auth/presentation/widgets/login_title.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -41,10 +41,6 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
   }
-
-
-
-
 
 
   @override

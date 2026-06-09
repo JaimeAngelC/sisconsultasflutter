@@ -9,6 +9,7 @@ class AuthProvider with ChangeNotifier {
   final AuthApiService _api = AuthApiService();
   String? _token;
   String? username;
+  String? email;
 
   bool isLoginLoading = false;
 
@@ -16,7 +17,9 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> checkLogin() async {
     _token = await _storage.read(key: 'token');
-    username = await _storage.read(key: 'username');
+    username = await _storage.read(key: 'username');  
+    email = await _storage.read(key: 'email');  
+
     if (_token != null && username != null) {
       status = AuthStatus.autenticated;
     } else {
@@ -38,9 +41,12 @@ class AuthProvider with ChangeNotifier {
 
       _token = user.token;
       this.username = user.nombres;     
+      email = user.email;     
 
       await _storage.write(key: 'token', value: _token);
       await _storage.write(key: 'username', value: username);
+      await _storage.write(key: 'email', value: email);
+
       status = AuthStatus.autenticated;      
       return true;
     } catch (e) {
@@ -55,6 +61,7 @@ class AuthProvider with ChangeNotifier {
   Future<void> logout() async {
     await _storage.delete(key: 'token');
     await _storage.delete(key: 'username');
+    await _storage.delete(key: 'email');
     status = AuthStatus.notAutenticated;
     notifyListeners();
   }
