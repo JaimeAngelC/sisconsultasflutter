@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sisconsultas/features/home/presentation/pages/page_home/widgets/custom_item.dart';
+import 'package:sisconsultas/features/home/presentation/widgets/custom_item.dart';
 
 class AppDrawer extends StatelessWidget {
   final String name;
   final String email;
   
-
-
   const AppDrawer({
     super.key, 
     required this.name, 
