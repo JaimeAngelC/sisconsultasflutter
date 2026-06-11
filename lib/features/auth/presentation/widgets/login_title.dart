@@ -5,9 +5,17 @@ class TitleLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "SENAVEX",
-      style: TextStyle(fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold),
+    return Column(
+      children: [
+        const Text(
+          "SISCONSULTAS",
+          style: TextStyle(fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        const Text(
+          "Iniciar Sesión",
+          style: TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.normal),
+        ),
+      ],
     );
   }
 }

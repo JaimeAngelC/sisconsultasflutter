@@ -5,7 +5,7 @@ import 'package:sisconsultas/features/auth/presentation/widgets/custom_button.da
 import 'package:sisconsultas/features/auth/presentation/widgets/custom_password.dart';
 import 'package:sisconsultas/features/auth/presentation/widgets/custom_textfield.dart';
 import 'package:sisconsultas/features/auth/presentation/widgets/login_title.dart';
-
+import 'package:sisconsultas/responsive/responsive.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -27,54 +27,84 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> login() async {
-    if(!formKey.currentState!.validate()) return;
-    
+    if (!formKey.currentState!.validate()) return;
+
     final authProvider = context.read<AuthProvider>();
 
-    final isLogin = await authProvider.login(usuarioController.text, contrasenaController.text);
+    final isLogin = await authProvider.login(
+      usuarioController.text,
+      contrasenaController.text,
+    );
 
-    if(!mounted) return;
+    if (!mounted) return;
 
-    if(!isLogin) {
+    if (!isLogin) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Usuario o contraseña incorrectos"))
+        const SnackBar(content: Text("Usuario o contraseña incorrectos")),
       );
     }
   }
 
-
   @override
-  Widget build(BuildContext context) {    
-
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: 400,
+      backgroundColor: Colors.blue[100],
+      body: ResponsiveContainer(
+        child: Container(
+          width: 360,
+          padding: const EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            color: Colors.blue[200],
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.blue, width: 0.8),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                offset: Offset(0.0, 4.0), //(x,y)
+                blurRadius: 10.0,
+              ),
+            ],
+          ),
+
           child: Form(
             key: formKey,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
-              children:  [
+              children: [
+                Image.asset('assets/images/logo.png', width: 100),
+
+                SizedBox(height: 20),
+
                 TitleLogin(),
-                SizedBox(height: 50),
+                SizedBox(height: 20),
                 CustomTextField(
                   controller: usuarioController,
                   hintText: "Usuario",
-                  validator: (value) => value!.isEmpty ? "Ingrese un usuario" : null,
+                  validator: (value) =>
+                      value!.isEmpty ? "Ingrese un usuario" : null,
                 ),
                 SizedBox(height: 20),
                 PasswordTexfField(
                   controller: contrasenaController,
-                  validator: (value) => value!.isEmpty ? "Ingrese una contraseña" : null,
+                  validator: (value) =>
+                      value!.isEmpty ? "Ingrese una contraseña" : null,
                 ),
+                SizedBox(height: 25),                
+                BotonAceptar(onPressed: login), 
                 SizedBox(height: 20),
-                BotonAceptar(
-                  onPressed: login,
+                Text(
+                    'Versión 2.0.0',
+                    style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey[700],
                 ),
+              ),              
+                         
               ],
             ),
           ),
-        )
+        ),
       ),
     );
   }
