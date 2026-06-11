@@ -14,14 +14,17 @@ class HomePage extends StatelessWidget {
     final auth = context.watch<AuthProvider>();
 
     return Scaffold(
+      backgroundColor: Colors.blue[100],
       appBar: AppBar(
-        title: const Text("Inicio")
+        title: const Text("Inicio"),
+        backgroundColor: Colors.blue[100],
         ),
 
-        drawer: AppDrawer(
-          name: auth.username?? "",
-          email: auth.email?? "",
-          
+        drawer: Drawer(
+          child: AppDrawerContent(
+            name: auth.username?? "",
+            email: auth.email?? ""
+          ),
         ),
       body: Center(
         child: Column(

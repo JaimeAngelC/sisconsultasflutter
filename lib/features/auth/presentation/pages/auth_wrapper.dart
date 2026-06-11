@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sisconsultas/features/auth/presentation/pages/login_page.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
+import 'package:sisconsultas/features/home/presentation/pages/home_desktop.dart';
 import 'package:sisconsultas/features/home/presentation/pages/home_page.dart';
 
 class AuthWrapper extends StatelessWidget {
@@ -16,6 +17,12 @@ class AuthWrapper extends StatelessWidget {
       case AuthStatus.notAutenticated:
         return const LoginPage();
       case AuthStatus.autenticated:
+        final width = MediaQuery.of(context).size.width;
+
+        if(width >= 800 ){
+          return const HomeDesktop();
+        }
+
         return const HomePage();
     }
   }

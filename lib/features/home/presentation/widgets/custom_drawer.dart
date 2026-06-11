@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sisconsultas/features/home/presentation/widgets/custom_item.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawerContent extends StatelessWidget {
   final String name;
   final String email;
   
-  const AppDrawer({
+  const AppDrawerContent({
     super.key, 
     required this.name, 
     required this.email,     
@@ -15,14 +15,13 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     
 
-    return Drawer(
-      child: ListView(
+    return ListView(
         padding: EdgeInsets.zero, 
         children: [
 
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.green[800],
+              color: Colors.blue[200],
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -40,19 +39,25 @@ class AppDrawer extends StatelessWidget {
             ),
 
           DrawerItem(
+            icon: Icons.business_center_sharp, 
+            title: "Empresas", 
+            onTap: (){}
+            ),
+
+          DrawerItem(
             icon: Icons.person, 
             title: "Perfil", 
             onTap: (){}
-            ),
+          ),
 
           DrawerItem(
             icon: Icons.settings, 
             title: "Configuración", 
             onTap: (){}
-            ),
+          ),
 
 
-        ]),
-    );
+        ]);
+    
   }
 }
