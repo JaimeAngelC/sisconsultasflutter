@@ -40,7 +40,7 @@ class CustomTextField extends StatelessWidget {
         focusedErrorBorder: errorBorder,
 
         contentPadding: EdgeInsets.symmetric(vertical: 18),
-        prefixIcon: Icon(Icons.person, color: Colors.tealAccent),
+        prefixIcon: Icon(Icons.person, color: Colors.grey[700]),
       ),
     );
   }

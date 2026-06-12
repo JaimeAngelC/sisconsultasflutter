@@ -9,11 +9,11 @@ class TitleLogin extends StatelessWidget {
       children: [
         const Text(
           "SISCONSULTAS",
-          style: TextStyle(fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
         ),
         const Text(
           "Iniciar Sesión",
-          style: TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.normal),
         ),
       ],
     );

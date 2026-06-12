@@ -22,12 +22,16 @@ class AppDrawerContent extends StatelessWidget {
 
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue[200],
+              color: Color(0xFF2DAA44),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("Bienvenido $name",),
+                Text("Bienvenido $name",
+                style: TextStyle(
+                  Colors.white,
+                  ),
+                ),
                 Text(email),
               ],
             ),

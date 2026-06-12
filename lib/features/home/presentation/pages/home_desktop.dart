@@ -11,7 +11,7 @@ class HomeDesktop extends StatelessWidget {
     final auth = context.watch<AuthProvider>();
     
     return Scaffold(
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Color(0xFF061333),
       body: Row(
         children: [
           Container(

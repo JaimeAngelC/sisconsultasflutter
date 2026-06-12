@@ -3,8 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:sisconsultas/features/auth/presentation/providers/auth_provider.dart';
 import 'package:sisconsultas/features/home/presentation/widgets/custom_drawer.dart';
 
-
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -14,13 +12,15 @@ class HomePage extends StatelessWidget {
     final auth = context.watch<AuthProvider>();
 
     return Scaffold(
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Color(0xFF061333),
       appBar: AppBar(
         title: const Text("Inicio"),
-        backgroundColor: Colors.blue[100],
+        backgroundColor: Color(0xFF061333),
+        foregroundColor: Colors.white,
         ),
 
         drawer: Drawer(
+          backgroundColor: const Color(0xFF2B3350),
           child: AppDrawerContent(
             name: auth.username?? "",
             email: auth.email?? ""
@@ -32,7 +32,8 @@ class HomePage extends StatelessWidget {
           children: [            
               Text(
                 "Bienvenido ${auth.username}",
-                style: const TextStyle(fontSize: 22),
+                style: const TextStyle(fontSize: 22, color: Colors.white),
+                
               ),
               ElevatedButton(
                 onPressed: () async {

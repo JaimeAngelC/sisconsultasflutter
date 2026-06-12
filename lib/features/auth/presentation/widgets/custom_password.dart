@@ -46,10 +46,10 @@ class _PasswordTexfFieldState extends State<PasswordTexfField> {
         focusedErrorBorder: errorBorder,
         
         contentPadding: EdgeInsets.symmetric(vertical: 18),
-        prefixIcon: Icon(Icons.lock, color: Colors.tealAccent),
+        prefixIcon: Icon(Icons.lock, color: Colors.grey[700]),
         suffixIcon: IconButton(
           icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
-          color: Colors.tealAccent,
+          color: Colors.grey[700],
           onPressed: () => setState(() => obscureText = !obscureText),
         ),
       ),

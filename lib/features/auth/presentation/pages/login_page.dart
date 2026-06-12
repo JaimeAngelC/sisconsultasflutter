@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final authProvider = context.read<AuthProvider>();
 
-    final isLogin = await authProvider.login(
+    final isLogin = await authProvider.login1(
       usuarioController.text,
       contrasenaController.text,
     );
@@ -48,13 +48,13 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Color(0xFF061333),
       body: ResponsiveContainer(
         child: Container(
           width: 360,
           padding: const EdgeInsets.all(20.0),
           decoration: BoxDecoration(
-            color: Colors.blue[200],
+            color: const Color(0xFF2B3350),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.blue, width: 0.8),
             boxShadow: const [
@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                     'Versión 2.0.0',
                     style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey[700],
+                    color: Colors.grey[500],
                 ),
               ),              
                          

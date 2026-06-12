@@ -12,7 +12,7 @@ class BotonAceptar extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue,
+          backgroundColor: Color(0xFF2DAA44),
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
