@@ -1,6 +1,6 @@
 class Empresa {
-  final int? idEmpresa;
-  final int? idEstadoEmpresa;
+  final String? idEmpresa;
+  final String? idEstadoEmpresa;
   final String? razonSocial;
   final String? nit;
   final String? estado;
@@ -58,8 +58,8 @@ class Empresa {
   }
 
   Empresa copyWith({
-    int? idEmpresa,
-    int? idEstadoEmpresa,
+    String? idEmpresa,
+    String? idEstadoEmpresa,
     String? razonSocial,
     String? nit,
     String? estado,

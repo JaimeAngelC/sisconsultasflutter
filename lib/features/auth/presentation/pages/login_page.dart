@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final authProvider = context.read<AuthProvider>();
 
-    final isLogin = await authProvider.login1(
+    final isLogin = await authProvider.login(
       usuarioController.text,
       contrasenaController.text,
     );

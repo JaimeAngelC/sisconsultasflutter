@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sisconsultas/features/empresas/presentation/pages/page_empresas.dart';
 import 'package:sisconsultas/features/home/presentation/widgets/custom_item.dart';
 
 class AppDrawerContent extends StatelessWidget {
@@ -39,10 +40,19 @@ class AppDrawerContent extends StatelessWidget {
             ),
 
           DrawerItem(
-            icon: Icons.business_center_sharp, 
-            title: "Empresas", 
-            onTap: (){}
-            ),
+            icon: Icons.business_center_sharp,
+            title: "Empresas",
+            onTap: () {
+              Navigator.pop(context); // cerrar drawer
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const PageEmpresas(),
+                ),
+              );
+            },
+          ),
 
           DrawerItem(
             icon: Icons.person, 

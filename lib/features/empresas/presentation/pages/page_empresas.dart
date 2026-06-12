@@ -23,10 +23,11 @@ class _PageEmpresasState extends State<PageEmpresas> {
     cargarEmpresas();
   }
 
-  Future<void> cargarEmpresas() async {
+  Future<void> cargarEmpresas() async {    
     try {
-      final response = await EmpresaApiService().getEmpresas();
-
+      
+      final response = await EmpresaApiService().getEmpresas();  
+      
       if (!mounted) return;
 
       setState(() {
@@ -40,8 +41,7 @@ class _PageEmpresasState extends State<PageEmpresas> {
 
       await context.read<AuthProvider>().logout();
 
-    } catch (e) {
-
+    } catch (e) {      
       if (!mounted) return;
 
       setState(() {
